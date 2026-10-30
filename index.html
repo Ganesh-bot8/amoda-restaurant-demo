@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10100f">
+  <meta name="description" content="Unofficial concept website for Amoda Multicuisine Restaurant & Cafe.">
+  <title>Amoda | Multicuisine Restaurant & Cafe — Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #10100f; --panel: #181816; --panel-2: #20201c;
+      --gold: #d7b56d; --gold-light: #f0dba4; --text: #f6f1e7;
+      --muted: #b7b0a2; --line: rgba(215,181,109,.25);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .notice { background: #2a2417; color: #f0dba4; text-align: center; font-size: .78rem; padding: 8px 14px; letter-spacing: .04em; }
+    .nav-wrap { position: sticky; top: 0; z-index: 10; background: rgba(16,16,15,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    nav { max-width: var(--max); margin: auto; padding: 15px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-family: "Playfair Display", serif; font-size: 1.45rem; letter-spacing: .08em; color: var(--gold-light); white-space: nowrap; }
+    .brand small { display: block; font-family: "DM Sans", sans-serif; color: var(--muted); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: .9rem; color: #e4dece; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta, .btn { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--gold); background: var(--gold); color: #19160e; border-radius: 3px; padding: 12px 18px; font-weight: 700; transition: .2s ease; cursor: pointer; }
+    .nav-cta:hover, .btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--gold-light); }
+    .btn-outline:hover { background: rgba(215,181,109,.1); }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; max-width: var(--max); margin: auto; padding: 72px 24px 86px; gap: 54px; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; font-weight: 700; }
+    h1, h2, h3 { font-family: "Playfair Display", serif; font-weight: 500; line-height: 1.12; }
+    h1 { font-size: clamp(3rem, 6vw, 5.7rem); margin: 18px 0 22px; letter-spacing: -.035em; }
+    h1 span { color: var(--gold-light); font-style: italic; }
+    .hero p { color: var(--muted); max-width: 510px; font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-note { margin-top: 24px; color: #8f897c; font-size: .78rem; }
+    .hero-art { position: relative; min-height: 470px; }
+    .hero-art img { width: 100%; height: 470px; object-fit: cover; border-radius: 48% 48% 4px 4px; border: 1px solid var(--line); filter: saturate(.82); }
+    .hero-art:after { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--gold); border-radius: 48% 48% 4px 4px; pointer-events: none; z-index: -1; }
+    .floating-label { position: absolute; bottom: 25px; left: -28px; padding: 17px 21px; background: var(--panel); border: 1px solid var(--line); max-width: 220px; box-shadow: 0 12px 35px #0008; }
+    .floating-label strong { display: block; font-family: "Playfair Display", serif; font-size: 1.1rem; color: var(--gold-light); }
+    .floating-label span { font-size: .78rem; color: var(--muted); }
+    section { padding: 82px 24px; }
+    .section-inner { max-width: var(--max); margin: auto; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 35px; }
+    .section-head h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); margin: 9px 0 0; }
+    .section-head p { color: var(--muted); max-width: 420px; margin: 0; }
+    .about-strip { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: center; }
+    .about-mark { font-family: "Playfair Display", serif; font-size: clamp(5rem, 13vw, 10rem); line-height: .9; color: rgba(215,181,109,.18); text-align: center; }
+    .about-copy h2 { font-size: clamp(2rem, 4vw, 3.3rem); margin: 12px 0 20px; }
+    .about-copy p { color: var(--muted); }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .menu-card { background: var(--panel); border: 1px solid var(--line); padding: 25px; min-height: 205px; }
+    .menu-card .number { color: var(--gold); font-size: .75rem; letter-spacing: .14em; }
+    .menu-card h3 { font-size: 1.55rem; margin: 18px 0 10px; }
+    .menu-card p { color: var(--muted); font-size: .92rem; margin-bottom: 0; }
+    .menu-disclaimer { color: #928a7a; font-size: .8rem; margin-top: 20px; }
+    .gallery { background: var(--panel); }
+    .gallery-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; grid-template-rows: 220px 220px; gap: 14px; }
+    .gallery-grid figure { margin: 0; position: relative; overflow: hidden; border: 1px solid var(--line); background: var(--panel-2); }
+    .gallery-grid figure:first-child { grid-row: span 2; }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .gallery-grid figure:hover img { transform: scale(1.04); }
+    .gallery-grid figcaption { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 14px 12px; background: linear-gradient(transparent, #000b); font-size: .85rem; }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .location-card { background: var(--panel); border: 1px solid var(--line); padding: 30px; }
+    .location-card h3 { font-size: 1.7rem; margin: 0 0 12px; }
+    .location-card p { color: var(--muted); }
+    .map-placeholder { min-height: 245px; display: grid; place-items: center; text-align: center; padding: 28px; background: linear-gradient(135deg, #25231d, #151513); border: 1px dashed var(--gold); color: var(--muted); }
+    .map-placeholder strong { display: block; color: var(--gold-light); font-size: 1.05rem; margin-bottom: 8px; }
+    .contact { background: #151512; border-top: 1px solid var(--line); }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 50px; }
+    .contact h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); margin: 12px 0 20px; }
+    .contact p { color: var(--muted); }
+    .contact-form { display: grid; gap: 13px; }
+    label { display: grid; gap: 6px; color: #e7dfcf; font-size: .86rem; }
+    input, textarea, select { width: 100%; background: #20201c; color: var(--text); border: 1px solid #4c4536; border-radius: 3px; padding: 13px 14px; font: inherit; }
+    textarea { min-height: 110px; resize: vertical; }
+    .form-note { font-size: .78rem; color: #918979; }
+    footer { padding: 26px 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-inner { max-width: var(--max); margin: auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .demo-stamp { color: var(--gold-light); }
+    @media (max-width: 800px) {
+      .nav-links { gap: 13px; font-size: .82rem; }
+      .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 55px; gap: 35px; }
+      .hero-art { max-width: 520px; width: calc(100% - 14px); margin: auto; min-height: 350px; }
+      .hero-art img { height: 360px; }
+      .floating-label { left: -7px; bottom: 15px; }
+      .about-grid, .contact-grid, .location-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-mark { text-align: left; font-size: 6rem; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 180px; }
+      .gallery-grid figure:first-child { grid-row: auto; grid-column: span 2; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 13px 16px; gap: 10px; }
+      .brand { font-size: 1.2rem; }
+      .nav-links { gap: 10px; font-size: .76rem; }
+      .nav-links a:nth-child(3) { display: none; }
+      .hero { padding: 48px 18px 68px; }
+      h1 { font-size: 3.25rem; }
+      section { padding: 64px 18px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 145px; gap: 9px; }
+      .location-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">UNOFFICIAL WEBSITE CONCEPT · FOR PRESENTATION ONLY</div>
+  <div class="nav-wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home">AMODA<small>Multicuisine Restaurant &amp; Cafe</small></a>
+      <div class="nav-links">
+        <a href="#about">Our Story</a><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">A concept for a memorable dining experience</div>
+        <h1>Good food.<br><span>Beautiful moments.</span></h1>
+        <p>A warm, elegant space to bring people together over the food they love. Explore the demo and imagine a digital home for Amoda.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#menu">Explore menu concept</a>
+          <a class="btn btn-outline" href="#location">Find us</a>
+        </div>
+        <div class="hero-note">Demo copy only — replace with restaurant-approved details before launch.</div>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&q=85" alt="Illustrative restaurant food photography">
+        <div class="floating-label"><strong>Made for sharing</strong><span>A sample visual direction for the restaurant</span></div>
+      </div>
+    </section>
+
+    <section class="about-strip" id="about">
+      <div class="section-inner about-grid">
+        <div class="about-mark" aria-hidden="true">A.</div>
+        <div class="about-copy">
+          <div class="eyebrow">The Amoda concept</div>
+          <h2>A little more than a meal.</h2>
+          <p>This section is a placeholder for the restaurant’s real story, atmosphere, and hospitality. Once the team approves the content, it can be replaced with their own words and photographs.</p>
+          <p>Designed with a refined black-and-gold palette, this concept aims to make the menu, location, and contact details easy to find on mobile.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-inner">
+        <div class="section-head">
+          <div><div class="eyebrow">Menu preview</div><h2>A taste of the menu</h2></div>
+          <p>Replace these sample categories with the restaurant’s confirmed menu, dish names, and prices.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card"><div class="number">01 / SAMPLE CATEGORY</div><h3>Starters</h3><p>Insert approved vegetarian and non-vegetarian starter options here.</p></article>
+          <article class="menu-card"><div class="number">02 / SAMPLE CATEGORY</div><h3>Main Course</h3><p>Add confirmed signature dishes and serving information here.</p></article>
+          <article class="menu-card"><div class="number">03 / SAMPLE CATEGORY</div><h3>Rice &amp; Biryani</h3><p>Use the restaurant’s actual menu and current prices.</p></article>
+          <article class="menu-card"><div class="number">04 / SAMPLE CATEGORY</div><h3>Cafe &amp; Beverages</h3><p>Add coffee, tea, coolers, and other confirmed cafe options.</p></article>
+          <article class="menu-card"><div class="number">05 / SAMPLE CATEGORY</div><h3>Desserts</h3><p>List available desserts only after confirming with the restaurant.</p></article>
+          <article class="menu-card"><div class="number">06 / SAMPLE CATEGORY</div><h3>Chef’s Specials</h3><p>Feature real recommendations supplied by the restaurant team.</p></article>
+        </div>
+        <p class="menu-disclaimer">Menu categories above are placeholders, not verified offerings. No prices or specific dishes are claimed.</p>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-inner">
+        <div class="section-head">
+          <div><div class="eyebrow">Visual experience</div><h2>Gallery concept</h2></div>
+          <p>Illustrative food images are used to demonstrate the layout. Swap in restaurant-approved photos before publishing for customers.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Illustrative restaurant interior"><figcaption>Ambience · sample image</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=85" alt="Illustrative plated meal"><figcaption>Fresh flavours · sample image</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=700&q=85" alt="Illustrative grilled food"><figcaption>Food moments · sample image</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=700&q=85" alt="Illustrative meal"><figcaption>Made to enjoy · sample image</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=85" alt="Illustrative food spread"><figcaption>Gather around · sample image</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="section-inner">
+        <div class="section-head">
+          <div><div class="eyebrow">Visit</div><h2>Find your way to Amoda</h2></div>
+          <p>Use the verified map pin and address supplied by the restaurant before replacing the placeholder details below.</p>
+        </div>
+        <div class="location-grid">
+          <div class="location-card">
+            <h3>Location &amp; hours</h3>
+            <p><strong>Address:</strong> <span class="placeholder">[Confirm full address with the restaurant]</span></p>
+            <p><strong>Opening hours:</strong> <span class="placeholder">[Confirm days and timings]</span></p>
+            <p><strong>Parking / accessibility:</strong> <span class="placeholder">[Add only if confirmed]</span></p>
+            <a class="btn btn-outline" id="mapsLink" href="https://maps.app.goo.gl/YFN4tviy2qEaXVMk9" target="_blank" rel="noopener">Open Google Maps</a>
+          </div>
+          <div class="map-placeholder">
+            <div><strong>Google Maps location</strong><span>Map preview can be added after confirming the official address and map pin.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-inner contact-grid">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2>Let’s make a plan.</h2>
+          <p>This demo form is a visual example only. It does not send messages yet. Add the restaurant’s verified phone, WhatsApp, and email after receiving approval.</p>
+          <p><strong>Phone:</strong> <span class="placeholder">[Add verified phone number]</span></p>
+          <p><strong>WhatsApp:</strong> <span class="placeholder">[Add verified WhatsApp link]</span></p>
+          <p><strong>Email:</strong> <span class="placeholder">[Add verified email]</span></p>
+        </div>
+        <form class="contact-form" id="demoForm">
+          <label>Your name<input name="name" autocomplete="name" placeholder="Enter your name" required></label>
+          <label>Phone or email<input name="contact" placeholder="How can the restaurant reach you?" required></label>
+          <label>What is this about?
+            <select name="topic"><option>General enquiry</option><option>Table enquiry</option><option>Event or group enquiry</option><option>Other</option></select>
+          </label>
+          <label>Message<textarea name="message" placeholder="Write your message"></textarea></label>
+          <button class="btn" type="submit">Preview message</button>
+          <div class="form-note">Demo only: the form does not transmit or store your information.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Amoda · Unofficial demo concept</span>
+      <span class="demo-stamp">Not the official restaurant website. Details and images require approval.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("demoForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const preview = [
+        "DEMO MESSAGE PREVIEW — not sent",
+        "",
+        "Name: " + data.get("name"),
+        "Contact: " + data.get("contact"),
+        "Topic: " + data.get("topic"),
+        "Message: " + (data.get("message") || "(none)")
+      ].join("\\n");
+      alert(preview);
+    });
+  </script>
+</body>
+</html>
